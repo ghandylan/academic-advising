@@ -1,16 +1,20 @@
 package com.example.academicadvising.model;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "queue")
 public class Queue {
-    private String queueID; // primary key
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "queue_ID", nullable = false)
+    private String queue_ID; // primary key
 
+    @Column(name = "student_number") // foreign key
     private String studentNumber;
-    private String name;
-    private String program;
-    private int year;
-    private String concern;
 
+    @Column(name = "admin_number") // foreign key
     private String adminNumber;
-    private String adminName;
 
+    @Column(name = "queue_status")
     private String status;
 }
